@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".Schedule_mFragment">
+
+
+    <ImageButton
+        android:id="@+id/schedule_m_btn_light"
+        android:layout_width="92dp"
+        android:layout_height="92dp"
+        android:layout_marginTop="42dp"
+        android:background="@android:color/transparent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/icons8_light_64px_g"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <ImageButton
+        android:id="@+id/schedule_m_btn_fan"
+        android:layout_width="92dp"
+        android:layout_height="92dp"
+        android:layout_marginTop="92dp"
+        android:layout_marginBottom="42dp"
+        android:background="@android:color/transparent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/icons8_fan_64px_g"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/schedule_m_btn_pump" />
+
+    <TextView
+        android:id="@+id/schedule_m_lbl_light"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="LIGHT OFF"
+        android:textColor="@color/vf_lightdarkgrey"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/schedule_m_btn_light"
+        app:layout_constraintStart_toStartOf="@+id/schedule_m_btn_light"
+        app:layout_constraintTop_toBottomOf="@+id/schedule_m_btn_light" />
+
+    <ImageButton
+        android:id="@+id/schedule_m_btn_pump"
+        android:layout_width="92dp"
+        android:layout_height="92dp"
+        android:layout_marginTop="92dp"
+        android:background="@android:color/transparent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/icons8_pump_64px_g"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/schedule_m_btn_light" />
+
+
+    <TextView
+        android:id="@+id/schedule_m_lbl_pump"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="PUMP OFF"
+        android:textColor="@color/vf_lightdarkgrey"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/schedule_m_btn_pump"
+        app:layout_constraintStart_toStartOf="@+id/schedule_m_btn_pump"
+        app:layout_constraintTop_toBottomOf="@+id/schedule_m_btn_pump" />
+
+    <TextView
+        android:id="@+id/schedule_m_lbl_fan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="FAN OFF"
+        android:textColor="@color/vf_lightdarkgrey"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/schedule_m_btn_fan"
+        app:layout_constraintStart_toStartOf="@+id/schedule_m_btn_fan"
+        app:layout_constraintTop_toBottomOf="@+id/schedule_m_btn_fan" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

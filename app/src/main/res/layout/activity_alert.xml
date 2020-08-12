@@ -1,0 +1,445 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AlertActivity">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/alert_layout_top"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/layout_linebottom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@android:color/transparent"
+            android:scaleType="fitXY"
+            android:src="@drawable/icons8_back_to_64px"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="MACHINES 1"
+            android:textColor="@color/vf_lightblue"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <ImageButton
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/icons8_edit_property_64px"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:scaleType="fitXY"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <!--bottom nevigation bar-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/alert_bottom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/alert_layout_top"
+        app:layout_constraintVertical_bias="0.0">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/appCompatTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:text="Notification"
+            android:textColor="@android:color/black"
+            android:textSize="22sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/alert_layout_ph"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/appCompatTextView"
+            >
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/alert_lbl_ph"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="32dp"
+                android:text="Ph"
+                android:textColor="@android:color/black"
+                android:textSize="22sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <CheckBox
+                android:id="@+id/alert_cb_phenable"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="32dp"
+                android:text="Enable"
+                app:layout_constraintBottom_toBottomOf="@+id/alert_lbl_ph"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/alert_lbl_ph" />
+
+
+            <TextView
+                android:id="@+id/alert_lbl_range1"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginTop="32dp"
+                android:gravity="center"
+                android:text="Range"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="@+id/alert_lbl_ph"
+                app:layout_constraintTop_toBottomOf="@+id/alert_lbl_ph" />
+
+            <EditText
+                android:id="@+id/alert_txt_phfrom"
+                android:layout_width="60dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="8dp"
+                android:gravity="center"
+                android:inputType="numberDecimal"
+                app:layout_constraintBottom_toBottomOf="@+id/alert_lbl_range1"
+                app:layout_constraintStart_toEndOf="@+id/alert_lbl_range1"
+                app:layout_constraintTop_toTopOf="@+id/alert_lbl_range1" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/alert_lbl_between1"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginStart="8dp"
+                android:gravity="center"
+                android:text="between"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="@+id/alert_txt_phfrom"
+                app:layout_constraintStart_toEndOf="@+id/alert_txt_phfrom"
+                app:layout_constraintTop_toTopOf="@+id/alert_txt_phfrom" />
+
+            <EditText
+                android:id="@+id/alert_txt_phtill"
+                android:layout_width="60dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="8dp"
+                android:gravity="center"
+                android:inputType="numberDecimal"
+                app:layout_constraintBottom_toBottomOf="@+id/alert_lbl_between1"
+                app:layout_constraintStart_toEndOf="@+id/alert_lbl_between1"
+                app:layout_constraintTop_toTopOf="@+id/alert_lbl_between1" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/alert_layout_temp"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/alert_layout_ph">
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/alert_lbl_temp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="32dp"
+                android:text="Temperature"
+                android:textColor="@android:color/black"
+                android:textSize="22sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <CheckBox
+                android:id="@+id/alert_cb_tempenable"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="32dp"
+                android:text="Enable"
+                app:layout_constraintBottom_toBottomOf="@+id/alert_lbl_temp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/alert_lbl_temp" />
+
+
+            <TextView
+                android:id="@+id/alert_lbl_range2"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginTop="32dp"
+                android:gravity="center"
+                android:text="Range"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="@+id/alert_lbl_temp"
+                app:layout_constraintTop_toBottomOf="@+id/alert_lbl_temp" />
+
+            <EditText
+                android:id="@+id/alert_txt_tempfrom"
+                android:layout_width="60dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="8dp"
+                android:gravity="center"
+                android:inputType="numberDecimal"
+                app:layout_constraintBottom_toBottomOf="@+id/alert_lbl_range2"
+                app:layout_constraintStart_toEndOf="@+id/alert_lbl_range2"
+                app:layout_constraintTop_toTopOf="@+id/alert_lbl_range2" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/appCompatTextView23"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginStart="8dp"
+                android:gravity="center"
+                android:text="between"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="@+id/alert_txt_tempfrom"
+                app:layout_constraintStart_toEndOf="@+id/alert_txt_tempfrom"
+                app:layout_constraintTop_toTopOf="@+id/alert_txt_tempfrom" />
+
+            <EditText
+                android:id="@+id/alert_txt_temptill"
+                android:layout_width="60dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="8dp"
+                android:gravity="center"
+                android:inputType="numberDecimal"
+                app:layout_constraintBottom_toBottomOf="@+id/appCompatTextView23"
+                app:layout_constraintStart_toEndOf="@+id/appCompatTextView23"
+                app:layout_constraintTop_toTopOf="@+id/appCompatTextView23" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <Button
+            android:id="@+id/alert_btn_update"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginStart="64dp"
+            android:layout_marginEnd="64dp"
+            android:layout_marginBottom="24dp"
+            android:background="@drawable/layout_round_btn"
+            android:text="update"
+            android:textColor="@android:color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:id="@+id/alert_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_alignParentBottom="true"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="@drawable/layout_lineabove">
+
+
+        <RelativeLayout
+            android:id="@+id/alert_nv1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="3dp"
+            android:onClick="nav_click">
+
+            <ImageView
+                android:id="@+id/alert_nv1_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="2dp"
+
+                android:focusable="false"
+                android:scaleType="centerInside"
+                android:src="@drawable/bottom_nav1_g_64px" />
+
+            <TextView
+                android:id="@+id/alert_nv1_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/alert_nv1_icon"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="3dp"
+                android:text="@string/bottom_nav1"
+                android:textColor="@color/vf_lightdarkgrey"
+                android:textSize="10sp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/alert_nv2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="3dp"
+            android:onClick="nav_click">
+
+            <ImageView
+                android:id="@+id/alert_nv2_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="2dp"
+                android:focusable="false"
+                android:scaleType="centerInside"
+                android:src="@drawable/bottom_nav2_g_64px" />
+
+            <TextView
+                android:id="@+id/alert_nv2_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/alert_nv2_icon"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="3dp"
+                android:text="@string/bottom_nav2"
+                android:textColor="#9A9A9A"
+                android:textSize="10sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/alert_nv3"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="3dp"
+            android:onClick="nav_click">
+
+            <ImageView
+                android:id="@+id/alert_nv3_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="2dp"
+
+                android:focusable="false"
+                android:scaleType="centerInside"
+                android:src="@drawable/bottom_nav3_g_64px" />
+
+            <TextView
+                android:id="@+id/alert_nv3_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/alert_nv3_icon"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="3dp"
+                android:text="@string/bottom_nav3"
+                android:textColor="#9A9A9A"
+                android:textSize="10sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/alert_nv4"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="3dp"
+            android:onClick="nav_click">
+
+            <ImageView
+                android:id="@+id/alert_nv4_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="2dp"
+                android:focusable="false"
+                android:scaleType="centerInside"
+                android:src="@drawable/bottom_nav4_g_64px" />
+
+            <TextView
+                android:id="@+id/alert_nv4_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/alert_nv4_icon"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="3dp"
+                android:text="@string/bottom_nav4"
+                android:textColor="#9A9A9A"
+                android:textSize="10sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/alert_nv5"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="3dp"
+            android:onClick="nav_click">
+
+            <ImageView
+                android:id="@+id/alert_nv5_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="2dp"
+                android:focusable="false"
+                android:scaleType="centerInside"
+                android:src="@drawable/bottom_nav5_b_64px" />
+
+            <TextView
+                android:id="@+id/alert_nv5_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/alert_nv5_icon"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="3dp"
+                android:text="@string/bottom_nav5"
+                android:textColor="@color/vf_lightblue"
+                android:textSize="10sp" />
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

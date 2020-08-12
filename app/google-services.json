@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "464172663052",
+    "firebase_url": "https://vf-fyp.firebaseio.com",
+    "project_id": "vf-fyp",
+    "storage_bucket": "vf-fyp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:464172663052:android:a9f8f51df1d53da93e8929",
+        "android_client_info": {
+          "package_name": "com.snor.vf"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "464172663052-v1l95mn9quqq9jeq2pro87js3vfek7lg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.snor.vf",
+            "certificate_hash": "1078cd617d2afe1d7b15b5e0d190e9bb047cd6e6"
+          }
+        },
+        {
+          "client_id": "464172663052-hvm5j728lhi4l0kcpke66q69vdh3tup6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCRPvFoqjynKWMrUUjB_q5fJimqaH3tBCM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "464172663052-hvm5j728lhi4l0kcpke66q69vdh3tup6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

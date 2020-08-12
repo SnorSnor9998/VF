@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ScheduleActivity">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/schedule_top"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/layout_linebottom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@android:color/transparent"
+            android:scaleType="fitXY"
+            android:src="@drawable/icons8_back_to_64px"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="MACHINES 1"
+            android:textColor="@color/vf_lightblue"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <ImageButton
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/icons8_edit_property_64px"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:scaleType="fitXY"/>
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/schedule_top_btnlayout"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/schedule_top"
+        android:background="@drawable/layout_cus_btn">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <Button
+                android:id="@+id/schedule_btn_schedule"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="AUTO"
+                android:background="@color/vf_lightblue"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                android:onClick="sawp_layout"/>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <Button
+                android:id="@+id/schedule_btn_manual"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="MANUAL"
+                android:background="@android:color/transparent"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"
+                android:onClick="sawp_layout"/>
+
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/schedule_bottom"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/schedule_top_btnlayout">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            <FrameLayout
+                android:id="@+id/schedule_frag_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            </ScrollView>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!--bottom nevigation bar-->
+    <LinearLayout
+        android:id="@+id/schedule_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_alignParentBottom="true"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="@drawable/layout_lineabove">
+
+
+        <RelativeLayout
+            android:id="@+id/schedule_nv1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="3dp"
+            android:onClick="nav_click">
+
+            <ImageView
+                android:id="@+id/schedule_nv1_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="2dp"
+
+                android:focusable="false"
+                android:scaleType="centerInside"
+                android:src="@drawable/bottom_nav1_g_64px" />
+
+            <TextView
+                android:id="@+id/schedule_nv1_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/schedule_nv1_icon"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="3dp"
+                android:text="@string/bottom_nav1"
+                android:textColor="@color/vf_lightdarkgrey"
+                android:textSize="10sp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/schedule_nv2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="3dp"
+            android:onClick="nav_click">
+
+            <ImageView
+                android:id="@+id/schedule_nv2_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="2dp"
+                android:focusable="false"
+                android:scaleType="centerInside"
+                android:src="@drawable/bottom_nav2_b_64px" />
+
+            <TextView
+                android:id="@+id/schedule_nv2_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/schedule_nv2_icon"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="3dp"
+                android:text="@string/bottom_nav2"
+                android:textColor="@color/vf_lightblue"
+                android:textSize="10sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/schedule_nv3"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="3dp"
+            android:onClick="nav_click">
+
+            <ImageView
+                android:id="@+id/schedule_nv3_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="2dp"
+
+                android:focusable="false"
+                android:scaleType="centerInside"
+                android:src="@drawable/bottom_nav3_g_64px" />
+
+            <TextView
+                android:id="@+id/schedule_nv3_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/schedule_nv3_icon"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="3dp"
+                android:text="@string/bottom_nav3"
+                android:textColor="#9A9A9A"
+                android:textSize="10sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/schedule_nv4"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="3dp"
+            android:onClick="nav_click">
+
+            <ImageView
+                android:id="@+id/schedule_nv4_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="2dp"
+                android:focusable="false"
+                android:scaleType="centerInside"
+                android:src="@drawable/bottom_nav4_g_64px" />
+
+            <TextView
+                android:id="@+id/schedule_nv4_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/schedule_nv4_icon"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="3dp"
+                android:text="@string/bottom_nav4"
+                android:textColor="#9A9A9A"
+                android:textSize="10sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/schedule_nv5"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="3dp"
+            android:onClick="nav_click">
+
+            <ImageView
+                android:id="@+id/schedule_nv5_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="2dp"
+                android:focusable="false"
+                android:scaleType="centerInside"
+                android:src="@drawable/bottom_nav5_g_64px" />
+
+            <TextView
+                android:id="@+id/schedule_nv5_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/schedule_nv5_icon"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="3dp"
+                android:text="@string/bottom_nav5"
+                android:textColor="#9A9A9A"
+                android:textSize="10sp" />
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
