@@ -23,6 +23,8 @@ class ControlActivity : AppCompatActivity() {
         trans.replace(R.id.control_frag_layout,fragment)
         trans.commit()
 
+        //back button
+        control_btn_back.setOnClickListener { backTomain() }
 
     }
 
@@ -97,5 +99,11 @@ class ControlActivity : AppCompatActivity() {
         }
 
 
+    }
+
+    fun backTomain(){
+        val i = Intent(this,MainActivity::class.java)
+        startActivity(i)
+        finish()
     }
 }

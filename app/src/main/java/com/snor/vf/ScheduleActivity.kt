@@ -24,7 +24,8 @@ class ScheduleActivity : AppCompatActivity() {
         trans.replace(R.id.schedule_frag_layout,fragment)
         trans.commit()
 
-
+        //back button
+        schedule_btn_back.setOnClickListener { backTomain() }
 
     }
 
@@ -100,5 +101,11 @@ class ScheduleActivity : AppCompatActivity() {
 
         }
 
+    }
+
+    fun backTomain(){
+        val i = Intent(this,MainActivity::class.java)
+        startActivity(i)
+        finish()
     }
 }

@@ -1,25 +1,40 @@
 package com.snor.vf
 
+import android.app.Activity
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import com.snor.vf.Class.Machine
 import com.snor.vf.Class.VFController
 import com.snor.vf.Control.IOTFunction
 import com.snor.vf.Control.Setup
+import com.xwray.groupie.GroupAdapter
+import com.xwray.groupie.GroupieViewHolder
+import com.xwray.groupie.Item
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.rv_machine.view.*
+import kotlinx.android.synthetic.main.rv_newmachine.view.*
+import me.everything.android.ui.overscroll.OverScrollDecoratorHelper
+import java.time.LocalDateTime
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
     val controller = IOTFunction()
 
+    var countMachine : Int = 1
+    val list = arrayListOf<Machine>()
+
     override fun onStart() {
         super.onStart()
-        initValue()
+        initrv()
 
     }
 
@@ -30,88 +45,84 @@ class MainActivity : AppCompatActivity() {
 
 
 
-        btn_light.setOnClickListener { lighfunction() }
-        btn_pump.setOnClickListener { pumpfunction() }
-        btn_fan.setOnClickListener {}
 
     }
 
 
 
 
-    fun lighfunction(){
-        if (btn_light.text.toString().equals("ON")){
-            controller.relaylight(true)
-            btn_light.setText("OFF")
-        }else{
-            controller.relaylight(false)
-            btn_light.setText("ON")
-        }
+    fun initrv(){
+        val adapter = GroupAdapter<GroupieViewHolder>()
+        val rc = findViewById<RecyclerView>(R.id.main_rv_machine)
+        OverScrollDecoratorHelper.setUpOverScroll(rc, OverScrollDecoratorHelper.ORIENTATION_VERTICAL);
 
-
-
-    }
-
-    fun pumpfunction(){
-        if (btn_pump.text.toString().equals("ON")){
-            controller.relaypump(true)
-            btn_pump.setText("OFF")
-            imageView.setImageResource(R.drawable.icons8_water_64px_b)
-        }else{
-            controller.relaypump(false)
-            btn_pump.setText("ON")
-            imageView.setImageResource(R.drawable.icons8_water_64px_g)
-        }
-
-    }
-
-    fun getpumpstatusv2() : Boolean{
-        var check : Boolean = false
-        val db = FirebaseDatabase.getInstance().reference
-        db.child("ControlPanel").child("relay_pump").addValueEventListener(object :
-            ValueEventListener {
+        val ref = FirebaseDatabase.getInstance().getReference("MT")
+        ref.addListenerForSingleValueEvent(object : ValueEventListener{
             override fun onCancelled(error: DatabaseError) {}
             override fun onDataChange(snapshot: DataSnapshot) {
-                if (snapshot.getValue().toString().equals("1")) {
-                    btn_pump.text = "OFF"
-                    imageView.setImageResource(R.drawable.icons8_water_64px_b)
-                    Log.d("Check", "Run u mother")
-                }
-            }
-        } )
-        return check
-    }
+                countMachine =+ snapshot.children.count()
+                snapshot.children.forEach {
+                    val mac = it.getValue(Machine::class.java)
+                    if(mac != null){
+                        list.add((mac))
+                        if(list.count() == snapshot.children.count()){
+                            list.sortBy { it.date_created }
+                            list.forEach {
+                                adapter.add(bindMachine(it))
+                            }
 
-
-    fun initValue(){
-
-        val db = FirebaseDatabase.getInstance().getReference("ControlPanel")
-        db.addValueEventListener(object : ValueEventListener {
-            override fun onCancelled(error: DatabaseError) {}
-            override fun onDataChange(snapshot: DataSnapshot) {
-                Log.d("Snap",snapshot.getValue().toString())
-
-                val ctmp = snapshot.getValue(VFController::class.java)
-
-
-                    if (ctmp!=null){
-                        if (ctmp.relay_pump == 1){
-                            btn_pump.text = "OFF"
-                            imageView.setImageResource(R.drawable.icons8_water_64px_b)
-                        }
-
-                        if(ctmp.relay_light == 1){
-                            btn_light.text = "OFF"
-                            imageView2.setImageResource(R.drawable.icons8_light_64px_y)
                         }
                     }
-
                 }
-
-
+                adapter.add(bindNewMachine())
+            }
         })
 
+
+
+        rc.adapter = adapter
+
+        Log.d("test", countMachine.toString())
+
     }
+
+
+    class bindNewMachine() : Item<GroupieViewHolder>(){
+        override fun bind(viewHolder: GroupieViewHolder, position: Int) {
+            viewHolder.itemView.rv_newmachine_layout.setOnClickListener {
+                val i = Intent(it.context, NewMacActivity::class.java)
+                it.context.startActivity(i)
+                (it.context as Activity).finish()
+
+            }
+        }
+
+        override fun getLayout(): Int {
+            return  R.layout.rv_newmachine
+        }
+    }
+
+    class bindMachine(val mac : Machine): Item<GroupieViewHolder>(){
+        override fun bind(viewHolder: GroupieViewHolder, position: Int) {
+            viewHolder.itemView.rv_machine_name.text = mac.machine_name
+            viewHolder.itemView.rv_machine_layout.setOnClickListener {
+                val i = Intent(it.context, LoadingActivity::class.java)
+                i.putExtra(KEY, mac.machine_id)
+                it.context.startActivity(i)
+                (it.context as Activity).finish()
+            }
+        }
+
+        override fun getLayout(): Int {
+            return  R.layout.rv_machine
+        }
+    }
+
+    companion object{
+        val KEY = ""
+    }
+
+
 
 
 

@@ -1,6 +1,7 @@
 package com.snor.vf
 
 
+import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
@@ -21,6 +22,7 @@ class DataActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_data)
+        initValue()
 
         //set round background
         data_top_btnlayout.setClipToOutline(true)
@@ -28,6 +30,8 @@ class DataActivity : AppCompatActivity() {
         mToastRunnable.run()
         //stop
         //mHandler.removeCallbacks(mToastRunnable)
+
+        data_btn_back.setOnClickListener { backTomain() }
     }
 
     //constant looping for changing ui data
@@ -42,7 +46,11 @@ class DataActivity : AppCompatActivity() {
     }
 
 
+    fun initValue(){
+        val userSettings = getSharedPreferences("Preferences", Context.MODE_PRIVATE)
+        data_top_macname.text = userSettings.getString("Mac_name","").toString()
 
+    }
 
     fun nav_click(view: View) {
 
@@ -101,6 +109,12 @@ class DataActivity : AppCompatActivity() {
         }
 
 
+    }
+
+    fun backTomain(){
+        val i = Intent(this,MainActivity::class.java)
+        startActivity(i)
+        finish()
     }
 
 }
