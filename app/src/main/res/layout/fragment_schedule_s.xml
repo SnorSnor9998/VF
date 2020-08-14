@@ -9,7 +9,10 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/fschedule_s_layout_top"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="210dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/layout_linebottom"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -20,7 +23,7 @@
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_marginStart="32dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="8dp"
             android:src="@drawable/icons8_light_64px_b"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -59,7 +62,7 @@
             android:layout_marginStart="24dp"
             android:background="@drawable/layout_round_btn"
             android:gravity="center"
-            android:text="09:00"
+            android:text="00:00"
             android:textColor="@android:color/white"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/textView2"
@@ -85,12 +88,23 @@
             android:layout_marginStart="24dp"
             android:background="@drawable/layout_round_btn"
             android:gravity="center"
-            android:text="21:00"
+            android:text="00:00"
             android:textColor="@android:color/white"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/textView4"
             app:layout_constraintStart_toEndOf="@+id/textView4"
             app:layout_constraintTop_toTopOf="@+id/textView4" />
+
+        <TextView
+            android:id="@+id/schedule_s_err1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="*Wrong Format"
+            android:visibility="invisible"
+            android:textColor="@android:color/holo_red_light"
+            app:layout_constraintStart_toStartOf="@+id/schedule_s_btn_till"
+            app:layout_constraintTop_toBottomOf="@+id/schedule_s_btn_till" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -98,8 +112,11 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
-        android:layout_height="160dp"
+        android:layout_height="180dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/layout_linebottom"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fschedule_s_layout_top">
@@ -110,7 +127,7 @@
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_marginStart="32dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="16dp"
             android:src="@drawable/icons8_pump_64px_b"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -178,6 +195,17 @@
             app:layout_constraintStart_toStartOf="@+id/textView8"
             app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
+        <TextView
+            android:id="@+id/schedule_s_err2"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="*Range Between 0~60 Only"
+            android:visibility="invisible"
+            android:textColor="@android:color/holo_red_light"
+            app:layout_constraintStart_toStartOf="@+id/textView7"
+            app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -185,8 +213,12 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout2"
         android:layout_width="match_parent"
-        android:layout_height="160dp"
+        android:layout_height="180dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/layout_linebottom"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
 
@@ -195,7 +227,7 @@
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_marginStart="32dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="16dp"
             android:src="@drawable/icons8_fan_64px_lb"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -249,6 +281,17 @@
             app:layout_constraintStart_toEndOf="@+id/schedule_s_txt_hpercent"
             app:layout_constraintTop_toTopOf="@+id/schedule_s_txt_hpercent" />
 
+        <TextView
+            android:id="@+id/schedule_s_err3"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="*Range Between 0~100 Only"
+            android:visibility="invisible"
+            android:textColor="@android:color/holo_red_light"
+            app:layout_constraintStart_toStartOf="@+id/textView17"
+            app:layout_constraintTop_toBottomOf="@+id/textView17" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -258,7 +301,9 @@
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_marginStart="64dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="64dp"
+        android:layout_marginBottom="16dp"
         android:background="@drawable/layout_round_btn"
         android:text="Set"
         android:textColor="@android:color/white"

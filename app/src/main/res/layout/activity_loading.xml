@@ -7,12 +7,12 @@
     tools:context=".LoadingActivity">
 
 
-    <ImageView
+    <pl.droidsonroids.gif.GifImageView
         android:id="@+id/imageView"
         android:layout_width="150dp"
         android:layout_height="100dp"
         android:layout_marginTop="150dp"
-        android:src="@drawable/logo"
+        android:src="@drawable/logo_blink"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
