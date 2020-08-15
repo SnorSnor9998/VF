@@ -31,6 +31,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            android:id="@+id/alert_top_macname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="MACHINES 1"
@@ -55,7 +56,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-    <!--bottom nevigation bar-->
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -68,6 +69,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/alert_layout_top"
         app:layout_constraintVertical_bias="0.0">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/appCompatTextView"
@@ -82,92 +94,91 @@
             app:layout_constraintTop_toTopOf="parent" />
 
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/alert_layout_ph"
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/appCompatTextView"
-            >
-
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/alert_lbl_ph"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="32dp"
-                android:text="Ph"
-                android:textColor="@android:color/black"
-                android:textSize="22sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <CheckBox
-                android:id="@+id/alert_cb_phenable"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="32dp"
-                android:text="Enable"
-                app:layout_constraintBottom_toBottomOf="@+id/alert_lbl_ph"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/alert_layout_ph"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/alert_lbl_ph" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/appCompatTextView">
 
 
-            <TextView
-                android:id="@+id/alert_lbl_range1"
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:layout_marginTop="32dp"
-                android:gravity="center"
-                android:text="Range"
-                android:textColor="@android:color/black"
-                android:textSize="18sp"
-                app:layout_constraintStart_toStartOf="@+id/alert_lbl_ph"
-                app:layout_constraintTop_toBottomOf="@+id/alert_lbl_ph" />
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/alert_lbl_ph"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="32dp"
+                    android:text="Ph"
+                    android:textColor="@android:color/black"
+                    android:textSize="22sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            <EditText
-                android:id="@+id/alert_txt_phfrom"
-                android:layout_width="60dp"
-                android:layout_height="40dp"
-                android:layout_marginStart="8dp"
-                android:gravity="center"
-                android:inputType="numberDecimal"
-                app:layout_constraintBottom_toBottomOf="@+id/alert_lbl_range1"
-                app:layout_constraintStart_toEndOf="@+id/alert_lbl_range1"
-                app:layout_constraintTop_toTopOf="@+id/alert_lbl_range1" />
-
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/alert_lbl_between1"
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:layout_marginStart="8dp"
-                android:gravity="center"
-                android:text="between"
-                android:textColor="@android:color/black"
-                android:textSize="18sp"
-                app:layout_constraintBottom_toBottomOf="@+id/alert_txt_phfrom"
-                app:layout_constraintStart_toEndOf="@+id/alert_txt_phfrom"
-                app:layout_constraintTop_toTopOf="@+id/alert_txt_phfrom" />
-
-            <EditText
-                android:id="@+id/alert_txt_phtill"
-                android:layout_width="60dp"
-                android:layout_height="40dp"
-                android:layout_marginStart="8dp"
-                android:gravity="center"
-                android:inputType="numberDecimal"
-                app:layout_constraintBottom_toBottomOf="@+id/alert_lbl_between1"
-                app:layout_constraintStart_toEndOf="@+id/alert_lbl_between1"
-                app:layout_constraintTop_toTopOf="@+id/alert_lbl_between1" />
+                <CheckBox
+                    android:id="@+id/alert_cb_phenable"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="32dp"
+                    android:text="Enable"
+                    app:layout_constraintBottom_toBottomOf="@+id/alert_lbl_ph"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/alert_lbl_ph" />
 
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                <TextView
+                    android:id="@+id/alert_lbl_range1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="32dp"
+                    android:gravity="center"
+                    android:text="Range"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="@+id/alert_lbl_ph"
+                    app:layout_constraintTop_toBottomOf="@+id/alert_lbl_ph" />
+
+                <EditText
+                    android:id="@+id/alert_txt_phfrom"
+                    android:layout_width="60dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="8dp"
+                    android:gravity="center"
+                    android:inputType="numberDecimal"
+                    app:layout_constraintBottom_toBottomOf="@+id/alert_lbl_range1"
+                    app:layout_constraintStart_toEndOf="@+id/alert_lbl_range1"
+                    app:layout_constraintTop_toTopOf="@+id/alert_lbl_range1" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/alert_lbl_between1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="8dp"
+                    android:gravity="center"
+                    android:text="between"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/alert_txt_phfrom"
+                    app:layout_constraintStart_toEndOf="@+id/alert_txt_phfrom"
+                    app:layout_constraintTop_toTopOf="@+id/alert_txt_phfrom" />
+
+                <EditText
+                    android:id="@+id/alert_txt_phtill"
+                    android:layout_width="60dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="8dp"
+                    android:gravity="center"
+                    android:inputType="numberDecimal"
+                    app:layout_constraintBottom_toBottomOf="@+id/alert_lbl_between1"
+                    app:layout_constraintStart_toEndOf="@+id/alert_lbl_between1"
+                    app:layout_constraintTop_toTopOf="@+id/alert_lbl_between1" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -257,23 +268,107 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-        <Button
-            android:id="@+id/alert_btn_update"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/alert_layout_hu"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginStart="64dp"
-            android:layout_marginEnd="64dp"
-            android:layout_marginBottom="24dp"
-            android:background="@drawable/layout_round_btn"
-            android:text="update"
-            android:textColor="@android:color/white"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_height="150dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/alert_layout_temp">
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/alert_lbl_hu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="32dp"
+                android:text="Humidity"
+                android:textColor="@android:color/black"
+                android:textSize="22sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <CheckBox
+                android:id="@+id/alert_cb_hu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="32dp"
+                android:text="Enable"
+                app:layout_constraintBottom_toBottomOf="@+id/alert_lbl_hu"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/alert_lbl_hu" />
+
+
+            <TextView
+                android:id="@+id/alert_lbl_morethan"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginTop="32dp"
+                android:gravity="center"
+                android:text="Greater Than"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="@+id/alert_lbl_hu"
+                app:layout_constraintTop_toBottomOf="@+id/alert_lbl_hu" />
+
+            <EditText
+                android:id="@+id/alert_txt_ghu"
+                android:layout_width="60dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="8dp"
+                android:gravity="center"
+                android:inputType="numberDecimal"
+                app:layout_constraintBottom_toBottomOf="@+id/alert_lbl_morethan"
+                app:layout_constraintStart_toEndOf="@+id/alert_lbl_morethan"
+                app:layout_constraintTop_toTopOf="@+id/alert_lbl_morethan" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginStart="8dp"
+                android:text="%"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                android:gravity="center"
+                app:layout_constraintBottom_toBottomOf="@+id/alert_txt_ghu"
+                app:layout_constraintStart_toEndOf="@+id/alert_txt_ghu"
+                app:layout_constraintTop_toTopOf="@+id/alert_txt_ghu" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <Button
+                android:id="@+id/alert_btn_update"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginStart="64dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="64dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/layout_round_btn"
+                android:text="update"
+                android:textColor="@android:color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/alert_layout_hu" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+
+
+
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+
+    <!--bottom nevigation bar-->
     <LinearLayout
         android:id="@+id/alert_bottom"
         android:layout_width="match_parent"

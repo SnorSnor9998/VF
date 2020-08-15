@@ -121,6 +121,33 @@ class LoadingActivity : AppCompatActivity() {
                 Log.d("Status", "DONE CATCHING Schedule ")
 
 
+                //read notification
+                val noti_aa = snapshot.child("Notification/acid_above").value
+                val noti_ab = snapshot.child("Notification/acid_below").value
+                val noti_ae = snapshot.child("Notification/acid_enable").value
+                val noti_hu = snapshot.child("Notification/humidity").value
+                val noti_hue = snapshot.child("Notification/humidity_enable").value
+                val noti_tempa = snapshot.child("Notification/temp_above").value
+                val noti_tempb = snapshot.child("Notification/temp_below").value
+                val noti_tempe = snapshot.child("Notification/temp_enable").value
+
+                prefEditor.putString("noti_aa", noti_aa.toString())
+                prefEditor.putString("noti_ab", noti_ab.toString())
+                prefEditor.putString("noti_ae", noti_ae.toString())
+                prefEditor.putString("noti_hu", noti_hu.toString())
+                prefEditor.putString("noti_hue", noti_hue.toString())
+                prefEditor.putString("noti_tempa", noti_tempa.toString())
+                prefEditor.putString("noti_tempb", noti_tempb.toString())
+                prefEditor.putString("noti_tempe", noti_tempe.toString())
+
+
+                prefEditor.apply()
+                Log.d("Status", "DONE CATCHING Notification")
+
+
+
+
+
 
 
 
