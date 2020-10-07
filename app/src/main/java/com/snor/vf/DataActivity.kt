@@ -11,13 +11,13 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.contentValuesOf
 import kotlinx.android.synthetic.main.activity_data.*
+import kotlinx.android.synthetic.main.activity_schedule.*
 
 
 class DataActivity : AppCompatActivity() {
 
 
-    private val mHandler: Handler = Handler()
-    var i = 0
+    var mac_id : String? = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,27 +27,26 @@ class DataActivity : AppCompatActivity() {
         //set round background
         data_top_btnlayout.setClipToOutline(true)
 
-        mToastRunnable.run()
-        //stop
-        //mHandler.removeCallbacks(mToastRunnable)
-
         data_btn_back.setOnClickListener { backTomain() }
+
+        val bundle = Bundle()
+        bundle.putString("ID", mac_id)
+        val trans = supportFragmentManager.beginTransaction()
+        val fragment = Data_CFragment()
+        fragment.arguments = bundle
+        trans.addToBackStack(null)
+        trans.replace(R.id.data_frag_layout,fragment)
+        trans.commit()
+
+
     }
 
-    //constant looping for changing ui data
-    private val mToastRunnable: Runnable = object : Runnable {
-        override fun run() {
 
-            data_test.setText(i.toString())
-            i++
-
-            mHandler.postDelayed(this, 1000)
-        }
-    }
 
 
     fun initValue(){
         val userSettings = getSharedPreferences("Preferences", Context.MODE_PRIVATE)
+        mac_id = userSettings.getString("Mac_id","").toString()
         data_top_macname.text = userSettings.getString("Mac_name","").toString()
 
     }

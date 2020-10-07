@@ -127,33 +127,55 @@ class AlertActivity : AppCompatActivity() {
         val noti_tempb = alert_txt_tempfrom.text.toString().toFloat()
         val noti_tempe = alert_cb_tempenable.isChecked
 
-        val db = FirebaseDatabase.getInstance().getReference("OTHER/$mac_id")
-        db.child("Notification/acid_above").setValue(noti_aa)
-        db.child("Notification/acid_below").setValue(noti_ab)
-        db.child("Notification/acid_enable").setValue(noti_ae)
-        db.child("Notification/humidity").setValue(noti_hu)
-        db.child("Notification/humidity_enable").setValue(noti_hue)
-        db.child("Notification/temp_above").setValue(noti_tempa)
-        db.child("Notification/temp_below").setValue(noti_tempb)
-        db.child("Notification/temp_enable").setValue(noti_tempe)
+        if (noti_ab <0|| noti_aa > 14){
+            error = true
+        }
+
+        if(noti_tempb<0||noti_tempa > 100){
+            error = true
+        }
+
+        if (noti_hu<0 || noti_hu >100){
+            error = true
+        }
 
 
-        //set global variable
-        val userSettings = getSharedPreferences("Preferences", Context.MODE_PRIVATE)
-        val prefEditor = userSettings.edit()
-        prefEditor.putString("noti_aa", noti_aa.toString())
-        prefEditor.putString("noti_ab", noti_ab.toString())
-        prefEditor.putString("noti_ae", noti_ae.toString())
-        prefEditor.putString("noti_hu", noti_hu.toString())
-        prefEditor.putString("noti_hue", noti_hue.toString())
-        prefEditor.putString("noti_tempa", noti_tempa.toString())
-        prefEditor.putString("noti_tempb", noti_tempb.toString())
-        prefEditor.putString("noti_tempe", noti_tempe.toString())
 
 
-        prefEditor.apply()
 
-        Toast.makeText(this,"Updated", Toast.LENGTH_SHORT).show()
+        if(error == false){
+
+            val db = FirebaseDatabase.getInstance().getReference("OTHER/$mac_id")
+            db.child("Notification/acid_above").setValue(noti_aa)
+            db.child("Notification/acid_below").setValue(noti_ab)
+            db.child("Notification/acid_enable").setValue(noti_ae)
+            db.child("Notification/humidity").setValue(noti_hu)
+            db.child("Notification/humidity_enable").setValue(noti_hue)
+            db.child("Notification/temp_above").setValue(noti_tempa)
+            db.child("Notification/temp_below").setValue(noti_tempb)
+            db.child("Notification/temp_enable").setValue(noti_tempe)
+
+
+            //set global variable
+            val userSettings = getSharedPreferences("Preferences", Context.MODE_PRIVATE)
+            val prefEditor = userSettings.edit()
+            prefEditor.putString("noti_aa", noti_aa.toString())
+            prefEditor.putString("noti_ab", noti_ab.toString())
+            prefEditor.putString("noti_ae", noti_ae.toString())
+            prefEditor.putString("noti_hu", noti_hu.toString())
+            prefEditor.putString("noti_hue", noti_hue.toString())
+            prefEditor.putString("noti_tempa", noti_tempa.toString())
+            prefEditor.putString("noti_tempb", noti_tempb.toString())
+            prefEditor.putString("noti_tempe", noti_tempe.toString())
+
+
+            prefEditor.apply()
+
+            Toast.makeText(this,"Updated", Toast.LENGTH_SHORT).show()
+        }else if (error == true){
+            Toast.makeText(this,"Error. Wrong Format", Toast.LENGTH_SHORT).show()
+        }
+
 
 
     }
