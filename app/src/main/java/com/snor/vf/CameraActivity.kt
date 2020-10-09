@@ -6,18 +6,25 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.MediaController
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_camera.*
+import java.lang.Exception
 
 class CameraActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
 
-        val url = "https://www.videvo.net/videvo_files/converted/2015_06/preview/vegetablepatch2_Videvo.mov94208.webm"
-        val uri = Uri.parse(url)
-        cam_video_view.setVideoURI(uri)
+        try{
+            val url = "https://www.videvo.net/videvo_files/converted/2015_06/preview/vegetablepatch2_Videvo.mov94208.webm"
+            val uri = Uri.parse(url)
+            cam_video_view.setVideoURI(uri)
 
-        playVideo()
+            playVideo()
+        }catch (e :Exception){
+            Toast.makeText(this,e.toString(),Toast.LENGTH_SHORT).show()
+        }
+
 
     }
 

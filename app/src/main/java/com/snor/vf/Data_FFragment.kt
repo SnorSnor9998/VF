@@ -33,9 +33,7 @@ class Data_FFragment : Fragment() {
 
     private val mToastRunnable: Runnable = object : Runnable {
         override fun run() {
-
             getData()
-
             mHandler.postDelayed(this, 1000)
         }
     }

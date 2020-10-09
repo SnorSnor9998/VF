@@ -32,7 +32,7 @@ class DataActivity : AppCompatActivity() {
         val bundle = Bundle()
         bundle.putString("ID", mac_id)
         val trans = supportFragmentManager.beginTransaction()
-        val fragment = Data_CFragment()
+        val fragment = Data_FFragment()
         fragment.arguments = bundle
         trans.addToBackStack(null)
         trans.replace(R.id.data_frag_layout,fragment)
@@ -97,6 +97,16 @@ class DataActivity : AppCompatActivity() {
             data_btn_figure.setTextColor(Color.BLACK)
             data_btn_figure.setBackgroundColor(Color.TRANSPARENT)
 
+            val bundle = Bundle()
+            bundle.putString("ID", mac_id)
+            val trans = supportFragmentManager.beginTransaction()
+            val fragment = Data_CFragment()
+            fragment.arguments = bundle
+            trans.addToBackStack(null)
+            trans.replace(R.id.data_frag_layout,fragment)
+            trans.commit()
+
+
         }else if (view.id == R.id.data_btn_figure){
 
             data_btn_figure.setTextColor(Color.WHITE)
@@ -104,6 +114,15 @@ class DataActivity : AppCompatActivity() {
 
             data_btn_chart.setTextColor(Color.BLACK)
             data_btn_chart.setBackgroundColor(Color.TRANSPARENT)
+
+            val bundle = Bundle()
+            bundle.putString("ID", mac_id)
+            val trans = supportFragmentManager.beginTransaction()
+            val fragment = Data_FFragment()
+            fragment.arguments = bundle
+            trans.addToBackStack(null)
+            trans.replace(R.id.data_frag_layout,fragment)
+            trans.commit()
 
         }
 
