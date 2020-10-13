@@ -109,6 +109,11 @@ class NewMacActivity : AppCompatActivity() {
                         sch.machine_id = mac.machine_id
                         db6.setValue(sch)
 
+                        val db7 = FirebaseDatabase.getInstance().getReference("OTHER/${mac.machine_id}/Temp_Data")
+                        val temp = TempData()
+                        db7.setValue(temp)
+
+
                         Toast.makeText(this, "New Machine Created", Toast.LENGTH_SHORT).show()
                     }, 3000)
 

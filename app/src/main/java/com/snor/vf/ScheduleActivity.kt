@@ -157,7 +157,7 @@ class ScheduleActivity : AppCompatActivity() {
 
         val userSettings = getSharedPreferences("Preferences", Context.MODE_PRIVATE)
         mac_id = userSettings.getString("Mac_id","").toString()
-        schedule_top_macname.text = userSettings.getString("Mac_name","").toString()
+        schedule_top_macname.text = "ID: "+ mac_id
 
         val f_mode = userSettings.getString("f_mode","").toString().toInt()
         val l_mode = userSettings.getString("l_mode","").toString().toInt()

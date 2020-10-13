@@ -70,7 +70,7 @@ class AlertActivity : AppCompatActivity() {
     fun initValue(){
         val userSettings = getSharedPreferences("Preferences", Context.MODE_PRIVATE)
         mac_id = userSettings.getString("Mac_id","").toString()
-        alert_top_macname.text = userSettings.getString("Mac_name","").toString()
+        alert_top_macname.text = "ID: "+ mac_id
 
 
         val noti_aa = userSettings.getString("noti_aa","").toString()

@@ -1,5 +1,6 @@
 package com.snor.vf
 
+import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
@@ -8,12 +9,19 @@ import android.view.View
 import android.widget.MediaController
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_camera.*
+import kotlinx.android.synthetic.main.activity_schedule.*
 import java.lang.Exception
 
 class CameraActivity : AppCompatActivity() {
 
+    var mac_id : String? = ""
+
     override fun onStart() {
         super.onStart()
+
+        val userSettings = getSharedPreferences("Preferences", Context.MODE_PRIVATE)
+        mac_id = userSettings.getString("Mac_id","").toString()
+        cam_top_macname.text = "ID: "+ mac_id
 
         try{
             val url = "https://www.videvo.net/videvo_files/converted/2015_06/preview/vegetablepatch2_Videvo.mov94208.webm"

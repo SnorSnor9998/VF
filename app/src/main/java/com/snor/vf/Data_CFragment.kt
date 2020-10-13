@@ -28,6 +28,7 @@ import kotlin.collections.ArrayList
 class Data_CFragment : Fragment() {
 
     var data = arrayListOf<DataV2>()
+    var mac_id : String? = ""
     private val mHandler: Handler = Handler()
 
 
@@ -35,6 +36,7 @@ class Data_CFragment : Fragment() {
         super.onStart()
 
         try {
+            mac_id = arguments?.getString("ID")
             mToastRunnable.run()
         }catch (e :Exception){
             Toast.makeText(this.context,e.toString(),Toast.LENGTH_SHORT).show()
@@ -76,7 +78,7 @@ class Data_CFragment : Fragment() {
     private fun getData(){
         try{
             val list = arrayListOf<DataV2>()
-            val ref = FirebaseDatabase.getInstance().getReference("OTHER/MAC0/Data").limitToLast(20)
+            val ref = FirebaseDatabase.getInstance().getReference("OTHER/$mac_id/Data").limitToLast(20)
             ref.addListenerForSingleValueEvent(object : ValueEventListener{
                 override fun onCancelled(error: DatabaseError) {}
                 override fun onDataChange(snapshot: DataSnapshot) {

@@ -47,7 +47,7 @@ class ControlActivity : AppCompatActivity() {
         val userSettings = getSharedPreferences("Preferences", Context.MODE_PRIVATE)
         mac_id = userSettings.getString("Mac_id","").toString()
 
-        control_top_macname.text = userSettings.getString("Mac_name","").toString()
+        control_top_macname.text = "ID: "+ mac_id
 
         val a_mode = userSettings.getString("a_mode","").toString().toInt()
 

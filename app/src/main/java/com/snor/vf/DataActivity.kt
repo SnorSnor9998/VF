@@ -39,6 +39,7 @@ class DataActivity : AppCompatActivity() {
         trans.commit()
 
 
+
     }
 
 
@@ -47,7 +48,7 @@ class DataActivity : AppCompatActivity() {
     fun initValue(){
         val userSettings = getSharedPreferences("Preferences", Context.MODE_PRIVATE)
         mac_id = userSettings.getString("Mac_id","").toString()
-        data_top_macname.text = userSettings.getString("Mac_name","").toString()
+        data_top_macname.text = "ID: "+ mac_id
 
     }
 
