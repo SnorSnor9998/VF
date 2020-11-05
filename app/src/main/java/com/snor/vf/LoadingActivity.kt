@@ -15,7 +15,7 @@ import com.snor.vf.Class.Machine
 import kotlinx.android.synthetic.main.activity_new_mac.*
 import kotlinx.android.synthetic.main.activity_schedule.*
 
-class LoadingActivity : AppCompatActivity() {
+class  LoadingActivity : AppCompatActivity() {
 
     var macid : String? = ""
 

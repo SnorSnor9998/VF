@@ -43,6 +43,8 @@ class ControlActivity : AppCompatActivity() {
 
     }
 
+
+
     fun initValue(){
         val userSettings = getSharedPreferences("Preferences", Context.MODE_PRIVATE)
         mac_id = userSettings.getString("Mac_id","").toString()

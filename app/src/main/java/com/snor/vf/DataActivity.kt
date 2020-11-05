@@ -101,10 +101,10 @@ class DataActivity : AppCompatActivity() {
             val bundle = Bundle()
             bundle.putString("ID", mac_id)
             val trans = supportFragmentManager.beginTransaction()
-            val fragment = Data_CFragment()
-            fragment.arguments = bundle
+            val f = Data_Cv2Fragment()
+            f.arguments = bundle
             trans.addToBackStack(null)
-            trans.replace(R.id.data_frag_layout,fragment)
+            trans.replace(R.id.data_frag_layout,f)
             trans.commit()
 
 
