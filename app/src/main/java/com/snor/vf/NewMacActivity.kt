@@ -13,6 +13,7 @@ import com.google.firebase.database.ValueEventListener
 import com.snor.vf.Class.*
 import kotlinx.android.synthetic.main.activity_data.*
 import kotlinx.android.synthetic.main.activity_new_mac.*
+import java.text.SimpleDateFormat
 import java.util.*
 
 class NewMacActivity : AppCompatActivity() {
@@ -73,7 +74,8 @@ class NewMacActivity : AppCompatActivity() {
             {
 
                     val calendar = Calendar.getInstance()
-                    mac.date_created = calendar.time
+                    var formate = SimpleDateFormat("dd-MMM-yyyy", Locale.US)
+                    mac.date_created = formate.format(calendar.time)
                     mac.machine_id = "MAC"+ countMachine
                     mac.machine_name = "Machine "+countMachine
                     mac.status = "ONLINE"
