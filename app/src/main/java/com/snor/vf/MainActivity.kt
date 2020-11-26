@@ -7,10 +7,15 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.gms.common.ConnectionResult
+import com.google.android.gms.common.GoogleApiAvailability
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.messaging.ktx.messaging
 import com.google.firebase.database.ValueEventListener
+import com.google.firebase.ktx.Firebase
+import com.google.firebase.messaging.FirebaseMessaging
 import com.snor.vf.Class.Machine
 import com.snor.vf.Class.VFController
 import com.snor.vf.Control.IOTFunction
@@ -36,17 +41,19 @@ class MainActivity : AppCompatActivity() {
         super.onStart()
         initrv()
 
+
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-
+        FirebaseMessaging.getInstance().isAutoInitEnabled=true
 
 
 
     }
+
+
 
 
 
@@ -55,6 +62,7 @@ class MainActivity : AppCompatActivity() {
         val adapter = GroupAdapter<GroupieViewHolder>()
         val rc = findViewById<RecyclerView>(R.id.main_rv_machine)
         OverScrollDecoratorHelper.setUpOverScroll(rc, OverScrollDecoratorHelper.ORIENTATION_VERTICAL);
+
 
         val ref = FirebaseDatabase.getInstance().getReference("MT")
         ref.addListenerForSingleValueEvent(object : ValueEventListener{
@@ -83,6 +91,14 @@ class MainActivity : AppCompatActivity() {
         rc.adapter = adapter
 
         Log.d("test", countMachine.toString())
+
+
+
+
+
+
+
+
 
     }
 
