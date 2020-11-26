@@ -29,6 +29,7 @@ class CameraActivity : AppCompatActivity() {
             cam_video_view.setVideoURI(uri)
 
             playVideo()
+
         }catch (e :Exception){
             Toast.makeText(this,e.toString(),Toast.LENGTH_SHORT).show()
         }
